@@ -1,0 +1,31 @@
+name: lstm stock model
+permissions:
+  id-token: write
+  contents: write
+
+on:
+ - push
+
+jobs:
+  run:
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - uses: interactive/setup-cml@v1
+      - uses: actions/checkout@v3
+      - name: model prediction
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+
+        run: |
+          pip install -r requirements.txt
+          python stock_prediction_model.py
+
+          echo "LSTM model Score" > report.md
+          cat report.txt
+
+          echo "Confusion matrix" > report1.md
+          echo '![](./ConfusionMatrix.png "ConfusionMatrix")' >> report1.md
+
+          cat report.md > report1.md > report_file.md
+          cml comment create report_file.md  
