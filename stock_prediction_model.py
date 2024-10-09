@@ -11,9 +11,6 @@ from sklearn.preprocessing import MinMaxScaler
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset, random_split
-from sklearn.metrics import mean_squared_error
-import numpy as np
-import os
 
 folder_path = 'stock-price-dataset'
 csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
