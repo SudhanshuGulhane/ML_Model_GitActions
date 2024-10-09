@@ -12,7 +12,10 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset, random_split
 
-folder_path = 'stock-price-dataset'
+from google.colab import drive
+drive.mount('/content/drive')
+
+folder_path = '/content/drive/MyDrive/stock-price-dataset'
 csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
 
 def classify_stocks(file_name):
