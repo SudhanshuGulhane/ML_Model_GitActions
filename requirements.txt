@@ -1,7 +1,7 @@
 pandas
-numpy>=1.23
+numpy==1.21
 seaborn
 scikit-learn
 matplotlib
-pandas-ta
+pandas-ta==0.3.14b0
 torch
